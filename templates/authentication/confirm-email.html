@@ -1,0 +1,75 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load socialaccount %}
+
+
+
+{% block title %} Login{% endblock title %}
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{% static '/base/css/style.css' %}">
+
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .container {
+        background-color: #fff;
+        margin: 50px auto;
+        max-width: 500px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+        font-size: 24px;
+        color: #333;
+        margin-top: 0;
+    }
+    p {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    a {
+        display: inline-block;
+        background-color: #2a9df4;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }
+    a:hover {
+        background-color: #2479bd;
+    }
+</style>
+
+{% endblock stylesheet %}
+
+
+{% block content %}
+<div class="container">
+    <h1>
+    {% if messages %}
+        
+        {% for message  in messages  %}
+            {{message}}
+        {% endfor %}
+            
+    {% endif %}
+        </h1>
+    <p> We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification e-mail in your main inbox, check your spam folder. Please contact us if you do not receive the verification e-mail within a few minutes.
+
+   </div>
+{% endblock content %}
+    
+

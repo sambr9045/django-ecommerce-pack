@@ -84,7 +84,8 @@
                             <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
                                     class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
 
-                            <p class="text-center mt-4 mb-4">Don't have account ? <a href="">Sign up</a></p>
+                            <p class="text-center mt-4 mb-4">Don't have account ? <a
+                                    href="{% url 'account_signup' %}">Sign up</a></p>
 
                         </form>
                     </div>
@@ -97,6 +98,5 @@
 
 
     {% block javascript %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
     {% endblock javascript %}

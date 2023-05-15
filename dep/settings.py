@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path, os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -146,4 +150,25 @@ LOGIN_REDIRECT_URL = "/"
 # django allauth custom form
 ACCOUNT_FORMS = {
     "login": "c_authentication.forms.CustomLoginForm",
+    "signup": "c_authentication.forms.CustomSignupForm",
 }
+
+
+# Custom adapter for asun email sending
+ACCOUNT_ADAPTER = "c_authentication.adapters.CustomAccountAdapter"
+# custom singup verification email
+ACCOUNT_EMAIL_CONFIRMATION_TEMPLATE = "account/email/email_confirmation_message.html"
+ACCOUNT_EMAIL_VERIFICATION_SENT_TEMPLATE = "account/email_verification_sent.html"
+
+# ACCOUNT_EMAIL_CONFIRMATION_TEMPLATE = "authentication/confirm-email.html"
+# ACCOUNT_EMAIL_VERIFICATION_TEMPLATE = "account/custom_verify_email.html"
+
+
+# send email preparation
+EMAIL_BACKEND = os.getenv("EMAIL_BACLEND")
+EMAIL_HOST = os.getenv("EMAIL_HOST")
+EMAIL_PORT = os.getenv("EMAIL_PORT")
+EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
